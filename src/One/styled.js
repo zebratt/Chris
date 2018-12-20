@@ -1,22 +1,6 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled from 'styled-components'
 import yellowButtonImg from '../images/yellow.png'
 
-const rotate = keyframes`
-    0% {
-        transform: rotateY(0);
-    }
-    50% {
-        transform: rotateY(180deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
-`
-
-const animation = props => css`
-    ${props.run ? rotate : 'none'} 1s ease-out;
-    animation-iteration-count: 3;
-`
 
 export const Container = styled.div`
     position: relative;

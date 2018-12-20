@@ -1,4 +1,20 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+const rotate = keyframes`
+    0% {
+        transform: rotateY(0);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+`
+
+const animation = props => css`
+    ${props.yes ? rotate : 'none'} 2s ease-out;
+`
 
 export const BackgroundImg = styled.img`
     display: block;

@@ -32,16 +32,22 @@ import res1 from '../images/1.png'
 class Two extends React.Component {
     state = {
         buttonImg: grayButtonImg,
-        currentCardIdx: -1
+        currentCardIdx: -1,
+        done: false,
     }
-    onChoose = (idx) => {
+    onChoose = idx => {
         this.setState({
             currentCardIdx: idx,
-            buttonImg: yellowButtonImg
+            buttonImg: yellowButtonImg,
+        })
+    }
+    onConfirm = () => {
+        this.setState({
+            done: true
         })
     }
     render() {
-        const { buttonImg, currentCardIdx } = this.state
+        const { buttonImg, currentCardIdx, done } = this.state
 
         return (
             <Container>
@@ -52,10 +58,17 @@ class Two extends React.Component {
                         <Title>请选择一张卡牌</Title>
                         <CardsBox>
                             {times(3).map(i => (
-                                <Card key={i} yes={i === currentCardIdx} src={cardImg} onClick={this.onChoose.bind(this, i)}/>
+                                <Card
+                                    key={i}
+                                    yes={i === currentCardIdx}
+                                    src={cardImg}
+                                    onClick={this.onChoose.bind(this, i)}
+                                />
                             ))}
                         </CardsBox>
-                        <Button yes={currentCardIdx !== -1} buttonImg={buttonImg}>确定</Button>
+                        <Button yes={currentCardIdx !== -1} buttonImg={buttonImg} onClick={this.onConfirm}>
+                            确定
+                        </Button>
                         <TipBox>
                             <TitleBox>
                                 <Antler src={leftAntlerImg} />
@@ -68,12 +81,14 @@ class Two extends React.Component {
                         </TipBox>
                     </Content>
                 </ContentBox>
-                <Mask>
-                    <ResultCard src={res1} />
-                    <ResultText>
-                        恭喜<span className="name">徐学健</span>获得麋鹿卡 
-                    </ResultText>
-                </Mask>
+                {done && (
+                    <Mask>
+                        <ResultCard src={res1} />
+                        <ResultText>
+                            恭喜<span className="name">{window.username}</span>获得麋鹿卡
+                        </ResultText>
+                    </Mask>
+                )}
             </Container>
         )
     }

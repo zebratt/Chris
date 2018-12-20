@@ -23,17 +23,28 @@ import rightAntlerImg from '../images/rightAntler.png'
 
 @withRouter
 class One extends React.Component {
+    state = {
+        name: ''
+    }
     onStart = () => {
         this.props.history.push('/two')
+
+        window.username = this.state.name
+    }
+    onChange = (e) => {
+        this.setState({
+            name: e.target.value
+        })
     }
     render() {
+        const { name } = this.state
         return (
             <Container>
                 <BackgroundImg src={oneImg} />
                 <Content>
                     <Blank />
                     <InputBox>
-                        <Input maxLength="16" placeholder="输入姓名" />
+                        <Input value={name} maxLength="16" placeholder="输入姓名" onChange={this.onChange} />
                         <Button onClick={this.onStart}>开始抽卡</Button>
                         <TipBox>
                             <TitleBox>

@@ -61,9 +61,9 @@ export const Input = styled.input`
 `
 
 export const Button = styled.div`
-    width: 75%;
-    height: 48px;
-    line-height: 46px;
+    width: 78%;
+    height: 58px;
+    line-height: 48px;
     margin: 0 auto;
     background: url(${yellowButtonImg});
     background-repeat: no-repeat;
@@ -102,5 +102,5 @@ export const Tips = styled.div`
     color: #fff;
     font-size: 13px;
     padding: 4px 6px;
-    line-height: 1.3;
+    line-height: 1.4;
 `

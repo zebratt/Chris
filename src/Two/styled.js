@@ -38,10 +38,56 @@ export const Title = styled.div`
 
 export const CardsBox = styled.div`
     display: flex;
-    margin: 24px auto;
+    margin: 24px auto 40px;
     justify-content: space-evenly;
 `
 
 export const Card = styled.img`
     width: calc(33.333% - 20px);
+    border: ${props => props.yes ? '#ffc71e solid 5px' : 'none'};
+    border-radius: 5px;
+`
+
+export const Button = styled.div`
+    width: 80%;
+    height: 58px;
+    line-height: 48px;
+    margin: 0 auto;
+    background: url(${props => props.buttonImg});
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    font-size: 23px;
+    color: ${props => props.yes ? '#e8441b' :'#9e9a99'};
+`
+export const TipBox = styled.div`
+    width: 80%;
+    background: #e44142;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 6px;
+    margin: 20px auto;
+`
+
+export const TitleBox = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const Antler = styled.img`
+    height: 15px;
+`
+
+export const Text = styled.div`
+    color: #ffc71e;
+    font-size: 15px;
+    padding: 3px 6px;
+    letter-spacing: 2px;
+`
+
+export const Tips = styled.div`
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 6px;
+    line-height: 1.4;
 `

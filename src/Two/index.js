@@ -25,20 +25,16 @@ import twoImg from '../images/two.jpg'
 import cardImg from '../images/card.png'
 import leftAntlerImg from '../images/leftAntler.png'
 import rightAntlerImg from '../images/rightAntler.png'
-import grayButtonImg from '../images/gray.png'
-import yellowButtonImg from '../images/yellow.png'
 import res1 from '../images/1.png'
 
 class Two extends React.Component {
     state = {
-        buttonImg: grayButtonImg,
         currentCardIdx: -1,
         done: false,
     }
     onChoose = idx => {
         this.setState({
             currentCardIdx: idx,
-            buttonImg: yellowButtonImg,
         })
     }
     onConfirm = () => {
@@ -47,7 +43,7 @@ class Two extends React.Component {
         })
     }
     render() {
-        const { buttonImg, currentCardIdx, done } = this.state
+        const { currentCardIdx, done } = this.state
 
         return (
             <Container>
@@ -66,7 +62,7 @@ class Two extends React.Component {
                                 />
                             ))}
                         </CardsBox>
-                        <Button yes={currentCardIdx !== -1} buttonImg={buttonImg} onClick={this.onConfirm}>
+                        <Button yes={currentCardIdx !== -1} onClick={this.onConfirm}>
                             确定
                         </Button>
                         <TipBox>
@@ -85,8 +81,10 @@ class Two extends React.Component {
                     <Mask>
                         <ResultCard src={res1} />
                         <ResultText>
-                            恭喜<span className="name">{window.username}</span>获得麋鹿卡
+                            <p>恭喜<span className="name">{window.username}</span>获得麋鹿卡</p>
+                            <p>请<span className="name">截图</span>保存，并提交的卡牌库</p>
                         </ResultText>
+                        <Button yes>立即提交</Button>
                     </Mask>
                 )}
             </Container>

@@ -1,4 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
+import grayButtonImg from '../images/gray.png'
+import yellowButtonImg from '../images/yellow.png'
 
 const rotate = keyframes`
     0% {
@@ -69,7 +71,7 @@ export const Button = styled.div`
     height: 58px;
     line-height: 48px;
     margin: 0 auto;
-    background: url(${props => props.buttonImg});
+    background: url(${props => props.yes ? yellowButtonImg : grayButtonImg});
     background-repeat: no-repeat;
     background-size: 100% 100%;
     text-align: center;
@@ -128,6 +130,7 @@ export const ResultText = styled.div`
     color: #fff;
     font-size: 23px;
     letter-spacing: 2px;
+    margin-bottom: 40px;
 
     & .name{
         color: #ffc71e;

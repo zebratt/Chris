@@ -1,6 +1,6 @@
 import styled from 'styled-components'
+import grayButtonImg from '../images/gray.png'
 import yellowButtonImg from '../images/yellow.png'
-
 
 export const Container = styled.div`
     position: relative;
@@ -49,12 +49,12 @@ export const Button = styled.div`
     height: 58px;
     line-height: 48px;
     margin: 0 auto;
-    background: url(${yellowButtonImg});
+    background: url(${props => props.pass ? yellowButtonImg : grayButtonImg});
     background-repeat: no-repeat;
     background-size: 100% 100%;
     text-align: center;
     font-size: 23px;
-    color: #e8441b;
+    color: ${props => props.pass ? '#e8441b' : '#9e9a99'};
 `
 
 export const TipBox = styled.div`

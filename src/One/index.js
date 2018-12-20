@@ -24,20 +24,24 @@ import rightAntlerImg from '../images/rightAntler.png'
 @withRouter
 class One extends React.Component {
     state = {
-        name: ''
+        name: '',
+        pass: false
     }
     onStart = () => {
-        this.props.history.push('/two')
+        if (this.state.name) {
+            this.props.history.push('/two')
 
-        window.username = this.state.name
+            window.username = this.state.name
+        }
     }
-    onChange = (e) => {
+    onChange = e => {
         this.setState({
-            name: e.target.value
+            name: e.target.value,
+            pass: !!e.target.value
         })
     }
     render() {
-        const { name } = this.state
+        const { name, pass } = this.state
         return (
             <Container>
                 <BackgroundImg src={oneImg} />
@@ -45,7 +49,9 @@ class One extends React.Component {
                     <Blank />
                     <InputBox>
                         <Input value={name} maxLength="16" placeholder="输入姓名" onChange={this.onChange} />
-                        <Button onClick={this.onStart}>开始抽卡</Button>
+                        <Button pass={pass} onClick={this.onStart}>
+                            开始抽卡
+                        </Button>
                         <TipBox>
                             <TitleBox>
                                 <Antler src={leftAntlerImg} />

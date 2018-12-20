@@ -1,35 +1,28 @@
 import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Container, Img, Button } from './styled'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-// images
-import liyoImg from './images/liyo.png'
+// pages
+import One from './One'
+import two from './Two'
 
 class App extends React.Component {
-    constructor() {
-        super()
-
-        this.state = {
-            run: false
-        }
-    }
     render() {
         return (
-            <Container>
-                <Img run={this.state.run} src={liyoImg} />
-                <Button
-                    onClick={() => {
-                        this.setState({
-                            run: true
-                        })
-                    }}
-                >
-                    Click
-                </Button>
-            </Container>
+            <Router>
+                <div>
+                    <Route exact path="/" component={One} />
+                    <Route exact path="/two" component={two} />
+                </div>
+            </Router>
         )
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+    <React.Fragment>
+        <App />
+    </React.Fragment>,
+    document.getElementById('root')
+)

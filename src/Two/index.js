@@ -14,7 +14,10 @@ import {
     BackgroundImg,
     Container,
     ContentBox,
-    Content
+    Content,
+    Mask,
+    ResultCard,
+    ResultText
 } from './styled'
 
 // images
@@ -24,6 +27,7 @@ import leftAntlerImg from '../images/leftAntler.png'
 import rightAntlerImg from '../images/rightAntler.png'
 import grayButtonImg from '../images/gray.png'
 import yellowButtonImg from '../images/yellow.png'
+import res1 from '../images/1.png'
 
 class Two extends React.Component {
     state = {
@@ -64,6 +68,12 @@ class Two extends React.Component {
                         </TipBox>
                     </Content>
                 </ContentBox>
+                <Mask>
+                    <ResultCard src={res1} />
+                    <ResultText>
+                        恭喜<span className="name">徐学健</span>获得麋鹿卡 
+                    </ResultText>
+                </Mask>
             </Container>
         )
     }

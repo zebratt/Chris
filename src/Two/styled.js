@@ -91,3 +91,29 @@ export const Tips = styled.div`
     padding: 4px 6px;
     line-height: 1.4;
 `
+
+export const Mask = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8)
+`
+
+export const ResultCard = styled.img`
+    display: block;
+    margin: 50px auto 0;
+    width: calc(100% - 100px);
+`
+
+export const ResultText = styled.div`
+    text-align: center;
+    color: #fff;
+    font-size: 23px;
+    letter-spacing: 2px;
+
+    & .name{
+        color: #ffc71e;
+    }
+`

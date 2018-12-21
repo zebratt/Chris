@@ -1,7 +1,7 @@
 import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 // pages
 import One from './One'

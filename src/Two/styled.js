@@ -116,7 +116,8 @@ export const Mask = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8)
+    background: rgba(0,0,0,0.8);
+    z-index: 100;
 `
 
 export const ResultCard = styled.img`

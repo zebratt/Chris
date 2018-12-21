@@ -19,31 +19,87 @@ import {
     ResultCard,
     ResultText
 } from './styled'
+import { Probability } from '../utils'
 
 // images
 import twoImg from '../images/two.jpg'
 import cardImg from '../images/card.png'
 import leftAntlerImg from '../images/leftAntler.png'
 import rightAntlerImg from '../images/rightAntler.png'
-import res1 from '../images/1.png'
+import card1 from '../images/1.png'
+import card2 from '../images/2.png'
+import card3 from '../images/3.png'
+import card4 from '../images/4.png'
+import card5 from '../images/5.png'
+import card6 from '../images/6.png'
+
+const cards = [
+    {
+        src: card1,
+        name: '圣诞老人卡',
+        p: '0.08%'
+    },
+    {
+        src: card2,
+        name: '麋鹿卡',
+        p: '0.5%'
+    },
+    {
+        src: card3,
+        name: '圣诞树卡',
+        p: '49.21%'
+    },
+    {
+        src: card4,
+        name: '小女孩卡',
+        p: '49.21%'
+    },
+    {
+        src: card5,
+        name: '雪夜之光卡',
+        p: '0.5%'
+    },
+    {
+        src: card6,
+        name: '圣诞星球卡',
+        p: '0.5%'
+    }
+]
 
 class Two extends React.Component {
     state = {
         currentCardIdx: -1,
         done: false,
+        card: null
+    }
+    componentDidMount() {
+        this.probabilitilized = new Probability(
+            ...cards.map(c => ({
+                p: c.p,
+                f: () => {
+                    this.setState({
+                        card: c,
+                        done: true
+                    })
+                }
+            }))
+        )
     }
     onChoose = idx => {
         this.setState({
-            currentCardIdx: idx,
+            currentCardIdx: idx
         })
     }
     onConfirm = () => {
-        this.setState({
-            done: true
-        })
+        if (this.state.currentCardIdx !== -1) {
+            this.probabilitilized()
+        }
+    }
+    onSubmit = () => {
+        location.href = '//forms.liulishuo.work/f/ygbzDb'
     }
     render() {
-        const { currentCardIdx, done } = this.state
+        const { currentCardIdx, done, card } = this.state
 
         return (
             <Container>
@@ -77,14 +133,20 @@ class Two extends React.Component {
                         </TipBox>
                     </Content>
                 </ContentBox>
-                {done && (
+                {done && card && (
                     <Mask>
-                        <ResultCard src={res1} />
+                        <ResultCard src={card.src} />
                         <ResultText>
-                            <p>恭喜<span className="name">{window.username}</span>获得麋鹿卡</p>
-                            <p>请<span className="name">截图</span>保存，并提交的卡牌库</p>
+                            <p>
+                                恭喜<span className="name">{window.username}</span>获得{card.name}
+                            </p>
+                            <p>
+                                请<span className="name">截图</span>保存，并提交的卡牌库
+                            </p>
                         </ResultText>
-                        <Button yes>立即提交</Button>
+                        <Button yes onClick={this.onSubmit}>
+                            立即提交
+                        </Button>
                     </Mask>
                 )}
             </Container>

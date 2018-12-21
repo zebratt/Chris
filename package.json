@@ -5,7 +5,8 @@
   "author": "xuejian.xu <jearbilove@yeah.net>",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",

@@ -42,17 +42,17 @@ const cards = [
     {
         src: card2,
         name: '麋鹿卡',
-        p: '0.5%'
+        p: '32.973%'
     },
     {
         src: card3,
         name: '圣诞树卡',
-        p: '49.21%'
+        p: '32.973%'
     },
     {
         src: card4,
         name: '小女孩卡',
-        p: '49.21%'
+        p: '32.973%'
     },
     {
         src: card5,
@@ -141,7 +141,7 @@ class Two extends React.Component {
                                 恭喜<span className="name">{window.username}</span>获得{card.name}
                             </p>
                             <p>
-                                请<span className="name">截图</span>保存，并提交的卡牌库
+                                请<span className="name">截图</span>保存，并提交到卡牌库
                             </p>
                         </ResultText>
                         <Button yes onClick={this.onSubmit}>

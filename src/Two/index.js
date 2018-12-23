@@ -93,6 +93,7 @@ class Two extends React.Component {
     onConfirm = () => {
         if (this.state.currentCardIdx !== -1) {
             this.probabilitilized()
+            window.sRap && window.sRap.audioEl.play()
         }
     }
     onSubmit = () => {

@@ -142,7 +142,7 @@ class Two extends React.Component {
                                 恭喜<span className="name">{window.username}</span>获得{card.name}
                             </p>
                             <p>
-                                请<span className="name">截图</span>保存，并提交到卡牌库
+                                请<span className="shot">截图</span>保存，并提交到卡牌库
                             </p>
                         </ResultText>
                         <Button yes onClick={this.onSubmit}>

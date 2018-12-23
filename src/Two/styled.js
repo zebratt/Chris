@@ -136,4 +136,9 @@ export const ResultText = styled.div`
     & .name{
         color: #ffc71e;
     }
+
+    & .shot{
+        color: #ffc71e;
+        font-size: 38px;
+    }
 `

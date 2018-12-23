@@ -62,7 +62,7 @@ export const CardsBox = styled.div`
 
 export const Card = styled.img`
     width: calc(33.333% - 20px);
-    border: ${props => props.yes ? '#ffc71e solid 5px' : 'none'};
+    border: ${props => props.yes ? '#ffc71e solid 5px' : 'transparent solid 5px'};
     border-radius: 5px;
 `
 

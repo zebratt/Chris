@@ -15,6 +15,15 @@ import {
     Input,
     Tips
 } from './styled'
+import bgMp3 from '../sounds/bg.mp3'
+
+let canplay = false
+if( typeof Audio !== undefined){
+    window.ad = new Audio(bgMp3)
+    window.ad.addEventListener('canplay', () => {
+        canplay = true
+    }, false)
+}
 
 // images
 import oneImg from '../images/one.jpg'
@@ -34,6 +43,9 @@ class One extends React.Component {
             window.username = this.state.name
         }
     }
+    onInputClick = () => {
+        window.ad && canplay && ad.play()
+    }
     onChange = e => {
         this.setState({
             name: e.target.value,
@@ -48,7 +60,7 @@ class One extends React.Component {
                 <Content>
                     <Blank />
                     <InputBox>
-                        <Input value={name} maxLength="16" placeholder="输入姓名" onChange={this.onChange} />
+                        <Input value={name} maxLength="16" placeholder="输入姓名" onChange={this.onChange} onClick={this.onInputClick} />
                         <Button pass={pass} onClick={this.onStart}>
                             开始抽卡
                         </Button>

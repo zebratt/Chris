@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "dist": "rm -rf ./dist && parcel build index.html",
     "publish": "scp -r dist/* xuxuejian@118.24.97.52:/usr/local/nginx/html/pc"
   },
   "dependencies": {

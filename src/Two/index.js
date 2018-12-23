@@ -33,6 +33,8 @@ import card4 from '../images/4.png'
 import card5 from '../images/5.png'
 import card6 from '../images/6.png'
 
+let card = null
+
 const cards = [
     {
         src: card1,
@@ -66,24 +68,22 @@ const cards = [
     }
 ]
 
+const pb = new Probability(
+    ...cards.map(c => ({
+        p: c.p,
+        f: () => {
+            card = c
+        }
+    }))
+)
+
+pb()
+
 class Two extends React.Component {
     state = {
         currentCardIdx: -1,
         done: false,
         card: null
-    }
-    componentDidMount() {
-        this.probabilitilized = new Probability(
-            ...cards.map(c => ({
-                p: c.p,
-                f: () => {
-                    this.setState({
-                        card: c,
-                        done: true
-                    })
-                }
-            }))
-        )
     }
     onChoose = idx => {
         this.setState({
@@ -92,7 +92,9 @@ class Two extends React.Component {
     }
     onConfirm = () => {
         if (this.state.currentCardIdx !== -1) {
-            this.probabilitilized()
+            this.setState({
+                done: true
+            })
             window.sRap && window.sRap.audioEl.play()
         }
     }
@@ -100,7 +102,7 @@ class Two extends React.Component {
         location.href = '//forms.liulishuo.work/f/ygbzDb'
     }
     render() {
-        const { currentCardIdx, done, card } = this.state
+        const { currentCardIdx, done } = this.state
 
         return (
             <Container>
